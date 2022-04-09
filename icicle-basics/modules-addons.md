@@ -36,7 +36,7 @@ And... bam! You're done. That's all it takes to add a first party addon.
 
 #### Third party modules
 
-When you want to add a third party module/addon to your project, all you'll need to do is add the addon like you would any other `dependency`, except that instead of `implementation`, you'll be using `addon`. Below this, you can find an example for such an addon.
+When you want to add a third party module/addon to your project, all you'll need to do is add the addon like you would any other`dependency`, except that instead of`implementation`, you'll be using `addon`. Below this, you can find an example for such an addon.
 
 
 
@@ -81,7 +81,11 @@ Modules are their own story, and most of them are so complex, they deserve their
 
 <summary>List of First Party Modules</summary>
 
-
+* Icicle-Commands --> complete easy-to-use command system
+* Icicle-NMS --> interface-based NMS mappings (deobfuscated via DeFrost)
+* Icicle-Serialization --> stupidly fast lightweight serialization library
+* Icicle-Protocol --> our own, easy-to-use protocol library
+* Icicle-Kotlin --> juicy Kotlin utilities
 
 </details>
 

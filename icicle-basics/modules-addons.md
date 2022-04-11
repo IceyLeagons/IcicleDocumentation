@@ -1,3 +1,7 @@
+---
+description: Module adding & reasons for the usage of them.
+---
+
 # 🗃 Modules (addons)
 
 Icicle's functionalities are separated into their respective modules. We've done this, so you only get what you really need.
@@ -8,7 +12,7 @@ These addons can be accessed via a simple dependency notation in the dependency 
 
 {% tabs %}
 {% tab title="With Gradle plugin" %}
-#### First party addons
+### First party addons
 
 In the case of first party addons, you can add them to your project by extending your `dependencies` block in your `build.gradle.kts`, below is an example where we add the `nms` module.
 
@@ -34,7 +38,7 @@ dependencies {
 
 And... bam! You're done. That's all it takes to add a first party addon.
 
-#### Third party modules
+### Third party modules
 
 When you want to add a third party module/addon to your project, all you'll need to do is add the addon like you would any other`dependency`, except that instead of`implementation`, you'll be using `addon`. Below this, you can find an example for such an addon.
 

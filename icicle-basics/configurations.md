@@ -1,3 +1,7 @@
+---
+description: This page contains a config file that's for demonstration purposes.
+---
+
 # 🔧 Configurations
 
 Icicle provides an easy way for multi-file configurations. Our solution also allows you to explain the different configuration fields with comments.

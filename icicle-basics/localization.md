@@ -1,33 +1,37 @@
+---
+description: A quick walkthrough thru the basics of localization.
+---
+
 # 🌐 Localization
 
 Providing multi-language support is vital for a successful plugin. Icicle provides an easy-to-use system with a built-in script language similar to Excel's.
 
-Localization is done through the TranslationService.
+Localization is done through the `TranslationService`.
 
 ### Setting up StringProviders
 
-StringProviders are the ones that provide the TranslationService with a string for a key from a file. With this abstraction, the developers can implement any kind of source they can think of, be it a simple file-based one, or maybe a remote solution.&#x20;
+`StringProviders` are the ones that provide the `TranslationService` with a string for a key from a file. With this abstraction, the developers can implement any kind of source they can think of, be it a simple file-based one, or maybe a remote solution.&#x20;
 
 ### Setting up LanguageProviders
 
-LanguageProviders are the ones responsible for providing a language code for a Player. Sources can be databases, geolocation, or just a fallback fixed language.
+`LanguageProviders` are the ones responsible for providing a language code for a `Player`. Sources can be databases, geolocation, or just a fallback fixed language.
 
 ### Using the TranslationService
 
-For usage, TranslationService must be auto-wired. By default - if no providers have been set up - it will use "en" as language, and will only use the default values.
+The `TranslationService` must be auto-wired. By default - if no providers have been set up - it will use "en" as the language, and will only use the default values.
 
-When first getting keys, the service will automatically append the default values to a translation file of choice (StringProvider must be set up for this).
+When first getting keys, the service will automatically append the default values to a translation file of choice (`StringProvider` must be set up for this).
 
 {% hint style="warning" %}
-By default the **TranslationService does not parse color codes**, as it's in the core, and not in a Bukkit environment.
+By default the **TranslationService does not parse color codes**, as it's in the core module, and the core does not depend on Bukkit.
 {% endhint %}
 
 ### Advanced Usage - String Code
 
-StringCode is a special Excel formula-like script language, that provides translators with the ability to write logic inside a string, therefore making language-specific tasks easier.
+`StringCode` is a special Excel formula-like script language, that provides translators with the ability to write logic inside a string, therefore making language-specific tasks easier.
 
 {% hint style="warning" %}
-Code must be written between {}, escaping is supported.
+Code must be written between {}, escaping with \ is supported.
 {% endhint %}
 
 <details>
@@ -38,7 +42,7 @@ Code must be written between {}, escaping is supported.
 You have {IF(EQ(amount, 1), IF(SW(item, 'a', 'e', 'i', 'o', 'u'),'an','a'),amount)} {item}{IF(GT(amount, 1), 's', '')}.
 ```
 
-`amount` and `item` are parameters passed from plugin.
+`amount` and `item` are parameters passed from the plugin.
 
 If the amount is 12, and the item is apple: `You have 12 apples.`\
 If the amount is 1, and the item is apple: `You have an apple.`\

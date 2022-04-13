@@ -12,9 +12,49 @@ Localization is done through the `TranslationService`.
 
 `StringProviders` are the ones that provide the `TranslationService` with a string for a key from a file. With this abstraction, the developers can implement any kind of source they can think of, be it a simple file-based one, or maybe a remote solution.&#x20;
 
+Built-in solutions are the following:
+
+* FileStringProvider --> Used for switching between multiple LanguageFiles
+
+If you want to set up your own, do it like this:
+
+```java
+public class MyStringProvider implements TranslationStringProvider {
+
+    @Override
+    public String get(String language, String key, String defaultValue) {
+        // We recommend automatically setting the defaultValue at the key, if your
+        // source does not contain a key. We also recommend returning the defaultValue here as well
+        // although it should be handled in the TransltionService.
+        return defaultValue;
+    }
+}
+
+```
+
 ### Setting up LanguageProviders
 
 `LanguageProviders` are the ones responsible for providing a language code for a `Player`. Sources can be databases, geolocation, or just a fallback fixed language.
+
+If you want to use the built-in providers, they are the following:
+
+* ConstantLanguageProvider --> Always returns a pre-set language (used as fallback)
+* PlayerLanguageGeoProvider --> returning language-based of geolocation (experimental, relies on external API!!!)
+* Planned: ~~DatabaseLanguageProvider~~
+
+If you've decided you want a custom implementation, you can do so like this:
+
+```java
+public class MyLanguageProvider implements LanguageProvider {
+    @Override
+    public String getLanguage(Object key) {
+        // key is an object due to multi-environment support.
+        // In Bukkit environments it is Player, but we recommend
+        // writing an instanceof check just in case
+        return "returning language code, ex.: en, de, hu";
+    }
+}
+```
 
 ### Using the TranslationService
 
@@ -23,7 +63,7 @@ The `TranslationService` must be auto-wired. By default - if no providers have b
 When first getting keys, the service will automatically append the default values to a translation file of choice (`StringProvider` must be set up for this).
 
 {% hint style="warning" %}
-By default the **TranslationService does not parse color codes**, as it's in the core module, and the core does not depend on Bukkit.
+By default, the **TranslationService does not parse color codes**, as it's in the core module, and the core does not depend on Bukkit.
 {% endhint %}
 
 ### Advanced Usage - String Code

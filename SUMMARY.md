@@ -11,10 +11,6 @@
 * [🌐 Localization](icicle-basics/localization.md)
 * [🗃 Modules (addons)](icicle-basics/modules-addons.md)
 
-## Commands
-
-* [🧠 Overview](commands/overview.md)
-
 ## Extending Icicle
 
 * [🧠 Overview](extending-icicle/overview.md)

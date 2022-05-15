@@ -28,7 +28,7 @@ Hesitant to use Icicle, or you simply have questions regarding it? Before asking
 
 If you're coming from a Spring background, or you have used dependency injection (beans) before, then **you will pick up Icicle very easily**.
 
-If all of these sound foreign, then don't feel disqualified. After you've [learned the basics](commands/overview.md), you will adjust to Icicle no-time.
+If all of these sound foreign, then don't feel disqualified. After you've [learned the basics](broken-reference), you will adjust to Icicle no-time.
 
 ### Is Icicle free?
 

@@ -1,6 +1,6 @@
 # Get Started
 
-[Icicle ](https://icicle.iceyleagons.net)is a Spring inspired framework designed for Bukkit/Spigot plugin development. It's a new way of thinking about plugin development, and not worrying about the complex systems you have to write for many hours straight.
+[Icicle ](https://icicle.iceyleagons.net/)is a Spring inspired framework designed for Bukkit/Spigot plugin development. It's a new way of thinking about plugin development, and not worrying about the complex systems you have to write for many hours straight.
 
 The aim of this project is to aid you in every single part of plugin development, from basic commands to advanced protocol mechanics.
 

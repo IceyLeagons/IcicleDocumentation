@@ -7,7 +7,7 @@ description: This page contains a config file that's for demonstration purposes.
 Icicle provides an easy way for multi-file configurations. Our solution also allows you to explain the different configuration fields with comments.
 
 {% hint style="info" %}
-Currently, we only support YAML as our configuration file, but we're planning to introduce Properties, HOCON, and all the other juicy stuff.
+Currently, we only support YAML and Properties as our configuration file, but we're planning to introduce HOCON and TOML.
 {% endhint %}
 
 When you create a config or add a new field to an already existing config, Icicle will create the config file if necessary and updates the default values if needed.
@@ -20,7 +20,7 @@ Creating a simple config file is as easy as:
 
 ```java
 @Config(value = "config.yml", headerLines = {"You can even add headers!"})
-public class MyConfig extends AbstractConfiguration {
+public class MyConfig implements Configuration {
 
     @ConfigField("settings.prefix")
     @ConfigComment("Change the prefix of the demo.")
@@ -44,7 +44,13 @@ settings:
 {% endcode %}
 
 {% hint style="warning" %}
-**Extending AbstractConfiguration is required.** This is what gives you the methods necessary to reload, load, etc. your config.
+**Implementing Configuration is required.** This is what gives you the methods necessary to reload, load, etc. your config.
+
+Even though the interface uses defaults, which throw UnImplementedExceptions, the ConfigDelegator will proxy your config class, and route these methods to the appropriate driver.
+{% endhint %}
+
+{% hint style="info" %}
+The driver is selected based on the extension of the file you provide!
 {% endhint %}
 
 ### Accessing values of a config

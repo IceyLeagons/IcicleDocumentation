@@ -7,6 +7,7 @@
 
 * [🧠 Overview](icicle-basics/overview.md)
 * [🥜 Beans & Dependency Injection](icicle-basics/beans-and-dependency-injection.md)
+* [🎓 Advanced Beans/DI](icicle-basics/advanced-beans-di.md)
 * [🔧 Configurations](icicle-basics/configurations.md)
 * [🌐 Localization](icicle-basics/localization.md)
 * [🗃 Modules (addons)](icicle-basics/modules-addons.md)

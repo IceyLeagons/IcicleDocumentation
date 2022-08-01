@@ -33,16 +33,12 @@ Dependency injection is a pattern we can use to implement IoC, where the impleme
 Connecting objects with other objects, or “injecting” objects into other objects, is done by an "assembler" rather than by the objects themselves. You can think of the job of this system as the Linker in C++ for example, but this is a very cruel comparison.
 
 {% hint style="warning" %}
-**In our implementation,** **DI can only be done via constructors**. We are not planning to implement field auto-wiring, as it's considered bad practice, but we will look into having auto-wiring enabled via setters.
+**In our implementation,** **DI can only be done via constructors & setters**. We are not planning to implement field auto-wiring, as it's considered bad practice.
 {% endhint %}
 
 ### DI in practice
 
 Let's look at an easy example: you have a manager that requires `JavaPlugin` to run.
-
-{% hint style="info" %}
-**Hint:** unlike in Spring, we do not require the `@Autowired` annotation to be present, it's purely there for documentation. (**However**, if we decide to implement setter auto-wiring it will become necessary, but that's only a plan for now)
-{% endhint %}
 
 {% tabs %}
 {% tab title="Dependency Injection (Icicle)" %}
@@ -117,7 +113,7 @@ Every bean is basically a subtype of `@AutoCreate` (for the Spring guys, it's ba
 So, without further ado, let's look at all the bean types that are by default in the core module:
 
 * **@AutoCreate** - The most basic bean type, it only provides auto-creation, management, and dependency injection.
-* **@Service** - A slightly advanced bean. You will probably use this the most. Other than the basic functionalities @AutoCreate provides, this also allows you to auto-wire the bean with all of their interfaces. However, an interface (basically the service) can only have one implementation here (the actual class you put the @Service annotation on). If multiple implementations exist for the same service, you will get an error. (If I had to compare it to something, it would be like the fact that you cannot have the same class names in a package)
+* **@Service** - A slightly advanced bean. You will probably use this the most. Other than the basic functionalities @AutoCreate provides, this also allows you to auto-wire the bean with all of their interfaces. However, an interface (basically the service) can only have one implementation (the actual class you put the @Service annotation on). If multiple implementations exist for the same service, you will get an error. (If I had to compare it to something, it would be like the fact that you cannot have the same class names in a package).
 * **@GlobalService** - Basically the same as `@Service`, but the implementations also get registered into the `GlobalServiceProvider` (in Bukkit environments to Bukkit's `ServicesManager`)
 * **@Config** - Reserved for configurations, learn more about them [here](configurations.md).
 * **@MethodAdviceHandler** - Beans that handle the registration of `Advice` to the [ByteBuddy](https://bytebuddy.net/#/tutorial) proxy used by the `BeanManager`.

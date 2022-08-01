@@ -116,6 +116,8 @@ So, without further ado, let's look at all the bean types that are by default in
 * **@Service** - A slightly advanced bean. You will probably use this the most. Other than the basic functionalities @AutoCreate provides, this also allows you to auto-wire the bean with all of their interfaces. However, an interface (basically the service) can only have one implementation (the actual class you put the @Service annotation on). If multiple implementations exist for the same service, you will get an error. (If I had to compare it to something, it would be like the fact that you cannot have the same class names in a package).
 * **@GlobalService** - Basically the same as `@Service`, but the implementations also get registered into the `GlobalServiceProvider` (in Bukkit environments to Bukkit's `ServicesManager`)
 * **@Config** - Reserved for configurations, learn more about them [here](configurations.md).
+* **@ConfigurationDriver** - Drivers for config types
+* **@MethodValueModifier** - Modifier handlers
 * **@MethodAdviceHandler** - Beans that handle the registration of `Advice` to the [ByteBuddy](https://bytebuddy.net/#/tutorial) proxy used by the `BeanManager`.
 * **@MethodInterceptorHandler** - Beans that handle the registration of `Interceptors` to the [ByteBuddy](https://bytebuddy.net/#/tutorial) proxy used by the `BeanManager`.
 * **@AnnotationHandler** - Beans that specialize in the customization part of the framework. They are what you will use to create new annotations and bean types. (They have 2 sub-types, but we're going to meet them later on, so no need to rush their introduction)
